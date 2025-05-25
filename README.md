@@ -4,30 +4,37 @@
 This project focuses on classifying internet memes using multimodal learning techniques. The aim is to leverage both textual and visual information inherent in memes to accurately categorize them into predefined classes or themes.
 
 ## Problem Statement
-The project addresses two primary tasks:
-- **Task A - Sentiment Analysis:** Classify memes into offensive or non-offensive categories based on the sentiment conveyed.
-- **Task B - Emotion Classification:** Identify various emotional nuances within memes, including humor, sarcasm, offensiveness, and motivational content. Memes may belong to more than one emotion category.
+
+This project tackles two critical challenges in understanding internet memes by leveraging multimodal learning:
+
+- **Task A – Offensive Content Detection:**  
+  Classify memes as offensive or non-offensive by analyzing the sentiment and intent conveyed through both text and images. This task utilizes the **MultiOFF** dataset, which contains multilingual samples to address hate speech detection across diverse languages and cultural contexts.
+
+- **Task B – Emotion Classification:**  
+  Detect and categorize multiple emotional dimensions expressed in memes, such as humor, sarcasm, offensiveness, and motivation. Memes can exhibit overlapping emotions, making this a multilabel classification problem. This task is based on the **Memotion-7k** dataset, which provides rich annotations and OCR-extracted text to support detailed emotional analysis.
+
+By addressing these tasks, the project aims to improve the automated understanding of meme content, which is often subtle, context-dependent, and multimodal.
+
 
 ## Dataset
 
 ### MultiOFF Dataset  
-| Split       | Hateful Samples | Non-Hateful Samples | Total Samples |
-|-------------|-----------------|---------------------|---------------|
-| Training    | 187             | 258                 | 445           |
-| Validation  | 58              | -                   | 58            |
-| Testing     | 91              | -                   | 91            |
-| **Total**   | 743 (combined)  |                     | 743           |
+| Class        | Training | Validation | Testing | Total Samples |
+|--------------|----------|------------|---------|---------------|
+| Hateful      | 187      | 58         | 58      | 743           |
+| Non-Hateful  | 258      | 91         | 91      |               |
 
 *The MultiOFF dataset is used for multilingual offensive language identification and hate speech detection.*
 
 ---
 
 ### Memotion-7k Dataset  
-| Split      | Humor | Sarcasm | Offensive | Motivation | Total Samples |
-|------------|-------|---------|-----------|------------|---------------|
-| Training   | 4,272 | 4,358   | 3,432     | 1,973      | 6,992         |
-| Validation | 534   | 544     | 426       | 246        | -             |
-| Testing    | 534   | 544     | 426       | 246        | -             |
+| Class       | Training (Macro F1) | Validation (Macro F1) | Testing (Macro F1) | Total Samples |
+|-------------|---------------------|----------------------|-------------------|---------------|
+| Humour      | 4,272 (1,320)       | 534 (166)            | 534 (166)         | 6,992         |
+| Sarcasm     | 4,358 (1,236)       | 544 (155)            | 544 (155)         | 6,992         |
+| Offensive   | 3,432 (2,170)       | 426 (269)            | 426 (269)         | 6,992         |
+| Motivation  | 1,973 (3,621)       | 246 (453)            | 246 (453)         | 6,992         |
 
 *Memotion-7k includes OCR-extracted text metadata enabling multimodal analysis of memes.*
 
@@ -70,9 +77,20 @@ The project addresses two primary tasks:
 This project demonstrates the effectiveness of multimodal learning in classifying internet memes by integrating textual, visual, and generated caption modalities. The combination of ALBERT, VGG-11, and BLIP models provides rich feature representations that improve the detection of offensive content and nuanced emotions in memes.
 
 ## References
-- [MultiOFF Dataset](https://github.com/your-repo/multioff)  
-- [Memotion-7k Dataset](https://github.com/your-repo/memotion7k)  
-- [ALBERT Paper](https://arxiv.org/abs/1909.11942)  
-- [VGG-11 Model](https://arxiv.org/abs/1409.1556)  
-- [BLIP: Bootstrapped Language Image Pretraining](https://arxiv.org/abs/2201.12086)  
+
+- **MultiOFF Dataset:**  
+  Suryawanshi, S., Chakravarthi, B. R., Arcan, M., & Buitelaar, P.  
+  *Multimodal meme dataset (MultiOFF) for identifying offensive content in image and text.*
+
+- **Memotion-7k Dataset:**  
+  Sharma, C., Paka, Scott, W., Bhageria, D., Das, A., Poria, S., Chakraborty, T., & Gambäck, B. (2020).  
+  *Task Report: Memotion Analysis 1.0 @SemEval 2020: The Visuo-Lingual Metaphor!*  
+  In Proceedings of the 14th International Workshop on Semantic Evaluation (SemEval-2020), Barcelona, Spain, Association for Computational Linguistics.
+
+- **BLIP Model (Bootstrapped Language Image Pretraining):**  
+  Li, J., Dong, L., Xu, C., Wang, W., & Wei, F. (2022).  
+  *BLIP: Bootstrapping Language-Image Pre-training for Unified Vision-Language Understanding and Generation.*  
+  Available at: [https://huggingface.co/Salesforce/blip-image-captioning-large](https://huggingface.co/Salesforce/blip-image-captioning-large)
+
+
 
