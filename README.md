@@ -22,7 +22,7 @@ By addressing these tasks, the project aims to improve the automated understandi
 | Class        | Training | Validation | Testing | Total Samples |
 |--------------|----------|------------|---------|---------------|
 | Hateful      | 187      | 58         | 58      | 743           |
-| Non-Hateful  | 258      | 91         | 91      |               |
+| Non-Hateful  | 258      | 91         | 91      | 743           |
 
 *The MultiOFF dataset is used for multilingual offensive language identification and hate speech detection.*
 
